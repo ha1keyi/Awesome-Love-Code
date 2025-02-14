@@ -4,3 +4,22 @@ body {
   overflow: hidden;
   background-repeat: no-repeat;
 }
+
+#neonText {
+  font-family: 'Arial', sans-serif;
+  font-size: 48px;
+  color: #fff;
+  text-shadow:
+    0 0 5px #f00,
+    0 0 10px #f00,
+    0 0 20px #f00,
+    0 0 30px #f00,
+    0 0 40px #f00,
+    0 0 50px #f00,
+    0 0 60px #f00,
+    0 0 70px #f00;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

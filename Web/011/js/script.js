@@ -21,37 +21,6 @@ void main() {
 }
 `;
 
-// 
-var dynamicText = document.getElementById("dynamicText");
-
-function getAverageColor() {
-    var pixels = new Uint8Array(canvas.width * canvas.height * 4);
-    gl.readPixels(0, 0, canvas.width, canvas.height, gl.RGBA, gl.UNSIGNED_BYTE, pixels);
-
-    var r = 0, g = 0, b = 0;
-    var count = 0;
-    for (var i = 0; i < pixels.length; i += 4) {
-        r += pixels[i];
-        g += pixels[i + 1];
-        b += pixels[i + 2];
-        count++;
-    }
-    r = Math.floor(r / count);
-    g = Math.floor(g / count);
-    b = Math.floor(b / count);
-
-    return `rgb(${r}, ${g}, ${b})`;
-}
-
-function updateTextColor() {
-    var color = getAverageColor();
-    dynamicText.style.color = color;
-    requestAnimationFrame(updateTextColor);
-}
-
-updateTextColor();
-// 
-
 var fragmentSource = `
 precision highp float;
 
@@ -64,7 +33,7 @@ uniform float time;
 #define POINT_COUNT 8
 
 vec2 points[POINT_COUNT];
-const float speed = -0.2;
+const float speed = -0.5;
 const float len = 0.25;
 float intensity = 1.3;
 float radius = 0.008;
